@@ -48,6 +48,14 @@ public class ManagerImpl implements Manager
 		return sessionFactory.getCurrentSession().getNamedQuery("zwierze.getALL")
 				.list();
 	}
+	
+	@Override
+	public void editZwierze(Zwierze zwierze) {
+		
+		sessionFactory.getCurrentSession().update(zwierze);
+	}
+	
+	
 
 
 
