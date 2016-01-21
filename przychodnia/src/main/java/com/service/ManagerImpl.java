@@ -35,6 +35,12 @@ public class ManagerImpl implements Manager
 	public Zwierze findZwierzeById(Long id) {
 		return (Zwierze) sessionFactory.getCurrentSession().get(Zwierze.class, id);
 	}
+	
+	@Override
+	public void deleteZwierze(Zwierze zwierze) {
+		
+		sessionFactory.getCurrentSession().delete(zwierze);
+	}
 
 
 
