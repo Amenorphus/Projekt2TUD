@@ -28,7 +28,6 @@ public class Zwierze
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	
 	public Long getId() {
 		return id;
 	}
@@ -49,6 +48,7 @@ public class Zwierze
 	public void setGatunek(String gatunek) {
 		this.gatunek = gatunek;
 	}
+	
 	
 	public Date getDataur() {
 		return dataur;
