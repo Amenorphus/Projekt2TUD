@@ -41,6 +41,13 @@ public class ManagerImpl implements Manager
 		
 		sessionFactory.getCurrentSession().delete(zwierze);
 	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<Zwierze> getAllZwierze() {
+		return sessionFactory.getCurrentSession().getNamedQuery("zwierze.getALL")
+				.list();
+	}
 
 
 
