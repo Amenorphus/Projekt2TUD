@@ -10,7 +10,6 @@ public interface Manager
 	List<Zwierze> getAllZwierze();
 	void deleteZwierze(Zwierze zwierze);
 	Zwierze findZwierzeByImie(String imie);
-	
-	
+	Zwierze findZwierzeById(Long id);
 
 }

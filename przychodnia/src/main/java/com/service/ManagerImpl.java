@@ -30,5 +30,12 @@ public class ManagerImpl implements Manager
 		zwierze.setId(null);
 		sessionFactory.getCurrentSession().persist(zwierze);
 	}
+	
+	@Override
+	public Zwierze findZwierzeById(Long id) {
+		return (Zwierze) sessionFactory.getCurrentSession().get(Zwierze.class, id);
+	}
+
+
 
 }
