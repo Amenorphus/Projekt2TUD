@@ -12,5 +12,6 @@ public interface Manager
 	Zwierze findZwierzeByImie(String imie);
 	Zwierze findZwierzeById(Long id);
 	void editZwierze(Zwierze zwierze);
+	
 
 }

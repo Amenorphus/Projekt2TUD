@@ -15,7 +15,8 @@ import javax.persistence.Table;
 @Entity
 @Table (name = "Zwierze")
 @NamedQueries({ 
-	@NamedQuery(name = "zwierze.getAll", query = "Select z from Zwierze z")
+	@NamedQuery(name = "zwierze.getAll", query = "Select z from Zwierze z"),
+	@NamedQuery(name = "zwierze.byImie", query = "Select z from Zwierze z where z.imie = :imie")
 })
 
 public class Zwierze 

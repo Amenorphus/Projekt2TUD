@@ -55,6 +55,11 @@ public class ManagerImpl implements Manager
 		sessionFactory.getCurrentSession().update(zwierze);
 	}
 	
+	@Override
+	public Zwierze findZwierzeByImie(String imie) {
+		return (Zwierze) sessionFactory.getCurrentSession().getNamedQuery("zwierze.byImie").setString("imie", imie).uniqueResult();
+	}
+	
 	
 
 
