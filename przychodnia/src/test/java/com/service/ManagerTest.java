@@ -1,7 +1,9 @@
 package com.service;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -32,6 +34,8 @@ public class ManagerTest
 	private final String imie2="Mruczek";
 	private final String gatunek2="kot";
 	
+	private final String imie3="Jack";
+	private final String gatunek3="papuga";
 	
 	
 	@Test
@@ -40,7 +44,7 @@ public class ManagerTest
 		Zwierze zwierze = new Zwierze();
 		zwierze.setImie(imie1);
 		zwierze.setGatunek(gatunek1);
-		
+		//test dodawanie i pobranie po imieniu
 		manager.addZwierze(zwierze);
 		Zwierze pobzwierze = manager.findZwierzeByImie(imie1);
 		
@@ -48,5 +52,42 @@ public class ManagerTest
 		assertEquals(gatunek1, pobzwierze.getGatunek());
 		
 	}
+	
+	@Test
+	public void deleteZwierzeCheck()
+	{
+		Zwierze z1 = new Zwierze();
+		z1.setImie(imie1);
+		z1.setGatunek(gatunek1);
+		
+		Zwierze z2 = new Zwierze();
+		z2.setImie(imie1);
+		z2.setGatunek(gatunek1);
+		
+		Zwierze z3 = new Zwierze();
+		z3.setImie(imie1);
+		z3.setGatunek(gatunek1);
+		
+		manager.addZwierze(z1);
+		manager.addZwierze(z2);
+		manager.addZwierze(z3);
+		
+		Zwierze pobrane2 = manager.findZwierzeByImie(imie2);
+		manager.deleteZwierze(pobrane2);
+		Zwierze kasowane = manager.findZwierzeByImie(imie2);
+		
+		Zwierze pobrane1 = manager.findZwierzeByImie(imie1);
+		Zwierze pobrane3 = manager.findZwierzeByImie(imie3);
+		
+		assertNull(kasowane);
+		assertEquals(imie1, pobrane1.getImie());
+		assertEquals(gatunek1, pobrane1.getGatunek());
+		assertEquals(imie3, pobrane3.getImie());
+		assertEquals(gatunek3, pobrane3.getGatunek());
+		
+		
+	}
+	
+	
 
 }

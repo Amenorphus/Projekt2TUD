@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -49,14 +51,14 @@ public class Zwierze
 	public void setGatunek(String gatunek) {
 		this.gatunek = gatunek;
 	}
-	
-	
+
 	public Date getDataur() {
 		return dataur;
 	}
 	public void setDataur(Date dataur) {
 		this.dataur = dataur;
 	}
+
 	
 	
 }

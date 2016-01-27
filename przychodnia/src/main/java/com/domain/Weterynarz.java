@@ -22,7 +22,7 @@ import javax.persistence.Table;
 
 public class Weterynarz 
 {
-	private Long id;
+	private Long weterynarzId;
 	private String imie;
 	private String nazwisko;
 	
@@ -31,10 +31,10 @@ public class Weterynarz
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO) 
 	public Long getId() {
-		return id;
+		return weterynarzId;
 	}
 	public void setId(Long id) {
-		this.id = id;
+		this.weterynarzId = id;
 	}
 	
 	public String getImie() {
