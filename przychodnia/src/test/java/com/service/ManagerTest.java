@@ -61,12 +61,12 @@ public class ManagerTest
 		z1.setGatunek(gatunek1);
 		
 		Zwierze z2 = new Zwierze();
-		z2.setImie(imie1);
-		z2.setGatunek(gatunek1);
+		z2.setImie(imie2);
+		z2.setGatunek(gatunek2);
 		
 		Zwierze z3 = new Zwierze();
-		z3.setImie(imie1);
-		z3.setGatunek(gatunek1);
+		z3.setImie(imie3);
+		z3.setGatunek(gatunek3);
 		
 		manager.addZwierze(z1);
 		manager.addZwierze(z2);
@@ -84,8 +84,22 @@ public class ManagerTest
 		assertEquals(gatunek1, pobrane1.getGatunek());
 		assertEquals(imie3, pobrane3.getImie());
 		assertEquals(gatunek3, pobrane3.getGatunek());
+	}
+	
+	@Test
+	public void findByIdCheck()
+	{
+		Zwierze z1 = new Zwierze();
+		z1.setImie(imie1);
+		z1.setGatunek(gatunek1);
 		
+		manager.addZwierze(z1);
+		Zwierze pobraneIm = manager.findZwierzeByImie(imie1);
+		Long ID = pobraneIm.getId();
+		Zwierze pobraneId = manager.findZwierzeById(ID);
 		
+		assertEquals(imie1, pobraneId.getImie());
+		assertEquals(gatunek1, pobraneId.getGatunek());
 	}
 	
 	
