@@ -45,7 +45,7 @@ public class ManagerTest
 		Zwierze pobzwierze = manager.findZwierzeByImie(imie1);
 		
 		assertEquals(imie1, pobzwierze.getImie());
-		assertEquals(gatunek2, pobzwierze.getGatunek());
+		assertEquals(gatunek1, pobzwierze.getGatunek());
 		
 	}
 
