@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -36,6 +37,10 @@ public class ManagerTest
 	
 	private final String imie3="Jack";
 	private final String gatunek3="papuga";
+	
+	private final String wi1="Zenon";
+	private final String wn1="Cwajnos";
+	
 	
 	
 	@Test
@@ -100,6 +105,46 @@ public class ManagerTest
 		
 		assertEquals(imie1, pobraneId.getImie());
 		assertEquals(gatunek1, pobraneId.getGatunek());
+	}
+	
+	@Test
+	public void XY()
+	{
+		Zwierze z1 = new Zwierze();
+		z1.setImie(imie1);
+		z1.setGatunek(gatunek1);
+		
+		Zwierze z2 = new Zwierze();
+		z2.setImie(imie2);
+		z2.setGatunek(gatunek2);
+		
+		Zwierze z3 = new Zwierze();
+		z3.setImie(imie3);
+		z3.setGatunek(gatunek3);
+		
+		Weterynarz w = new Weterynarz();
+		w.setImie(wi1);
+		w.setNazwisko(wn1);
+		
+		manager.addZwierze(z2);
+		manager.addZwierze(z3);
+		w.getZwierzes().add(manager.findZwierzeByImie(imie2));
+		w.getZwierzes().add(manager.findZwierzeByImie(imie2));
+		manager.addWeterynarz(w);
+		
+		manager.findWeterynarzByImie(wi1);
+		assertEquals(manager.findWeterynarzByImie(wi1).getZwierzes().size(), 2);
+		
+	}
+	@Test
+	public void addWeterynarzCheck()
+	{
+		Weterynarz w = new Weterynarz();
+		w.setImie(wi1);
+		w.setNazwisko(wn1);
+		manager.addWeterynarz(w);
+		Weterynarz pobrany = manager.findWeterynarzByImie(wi1);
+		assertEquals(pobrany.getImie(), wi1);
 	}
 	
 	

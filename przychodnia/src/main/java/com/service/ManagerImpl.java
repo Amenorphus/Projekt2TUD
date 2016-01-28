@@ -60,6 +60,17 @@ public class ManagerImpl implements Manager
 		return (Zwierze) sessionFactory.getCurrentSession().getNamedQuery("zwierze.byImie").setString("imie", imie).uniqueResult();
 	}
 	
+	@Override
+	public void addWeterynarz(Weterynarz weterynarz) {
+		weterynarz.setId(null);
+		sessionFactory.getCurrentSession().persist(weterynarz);
+	}
+	
+	@Override
+	public Weterynarz findWeterynarzByImie(String imie) {
+		return (Weterynarz) sessionFactory.getCurrentSession().getNamedQuery("weterynarz.byImie").setString("imie", imie).uniqueResult();
+	}
+	
 	
 
 

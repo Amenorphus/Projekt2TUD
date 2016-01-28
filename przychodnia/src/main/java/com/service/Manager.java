@@ -13,5 +13,7 @@ public interface Manager
 	Zwierze findZwierzeById(Long id);
 	void editZwierze(Zwierze zwierze);
 	
-
+	void addWeterynarz(Weterynarz weterynarz);
+	Weterynarz findWeterynarzByImie(String imie);
+	
 }
